@@ -67,6 +67,17 @@ class DownloadManager:
         return title_widget
 
     def input_widget(self):
+        """
+        The section of the main window for the user to input a two key pieces
+        of information:
+        
+            - The Download Link, the network location of the file to download.
+            - The Target Folder, the network location to store the file.
+
+        Returns:
+            - `input_widget`:
+                The PyQt6 widget item to add to the main window.
+        """
         # Setup the input widget
         input_widget = qtw.QWidget()
         input_layout = qtw.QVBoxLayout()
@@ -101,6 +112,20 @@ class DownloadManager:
         target_folder_layout.addWidget(self.target_folder_field)
         target_folder_widget.setLayout(target_folder_layout)
 
+        # Run Process Button
+
+        # Setup the run process button
+        run_button_widget = qtw.QWidget()
+        run_button_layout = qtw.QHBoxLayout()
+
+        run_button = qtw.QPushButton("Run Process")
+
+        # Compile run button
+        run_button_layout.addWidget(run_button)
+        run_button_widget.setLayout(run_button_layout)
+
+        # Balancing
+
         # Balance the input field widths
         label_max_width = max(
             self.download_link_label.widthMM(),
@@ -115,10 +140,11 @@ class DownloadManager:
         # Compile input widget
         input_layout.addWidget(download_link_widget)
         input_layout.addWidget(target_folder_widget)
+        input_layout.addWidget(run_button_widget)
         input_widget.setLayout(input_layout)
 
         return input_widget
-
+    
 
 # Start function at runtime
 if __name__ == '__main__':
