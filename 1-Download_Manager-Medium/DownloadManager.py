@@ -29,6 +29,7 @@ class DownloadManager:
 
         # Compile the main widget
         main_layout.addWidget(self.title_widget())
+        main_layout.addWidget(self.input_widget())
         main_widget.setLayout(main_layout)
 
         # Run the device!
@@ -64,6 +65,59 @@ class DownloadManager:
         title_widget.setLayout(title_layout)
 
         return title_widget
+
+    def input_widget(self):
+        # Setup the input widget
+        input_widget = qtw.QWidget()
+        input_layout = qtw.QVBoxLayout()
+
+        # Download Link Field
+
+        # Setup the download link input field
+        download_link_widget = qtw.QWidget()
+        download_link_layout = qtw.QHBoxLayout()
+
+        # Add the download link input field
+        self.download_link_label = qtw.QLabel("Download Link:")
+        self.download_link_field = qtw.QLineEdit()
+
+        # Compile the download link input field
+        download_link_layout.addWidget(self.download_link_label)
+        download_link_layout.addWidget(self.download_link_field)
+        download_link_widget.setLayout(download_link_layout)
+
+        # Target Folder Field
+
+        # Setup the download link input field
+        target_folder_widget = qtw.QWidget()
+        target_folder_layout = qtw.QHBoxLayout()
+
+        # Add the download link input field
+        self.target_folder_label = qtw.QLabel("Target Folder:")
+        self.target_folder_field = qtw.QLineEdit()
+
+        # Compile the download link input field
+        target_folder_layout.addWidget(self.target_folder_label)
+        target_folder_layout.addWidget(self.target_folder_field)
+        target_folder_widget.setLayout(target_folder_layout)
+
+        # Balance the input field widths
+        label_max_width = max(
+            self.download_link_label.widthMM(),
+            self.target_folder_label.widthMM()
+        )
+        self.download_link_label.setFixedWidth(label_max_width)
+        self.target_folder_label.setFixedWidth(label_max_width)
+
+        self.download_link_field.setMinimumWidth(300)
+        self.target_folder_field.setMinimumWidth(300)
+
+        # Compile input widget
+        input_layout.addWidget(download_link_widget)
+        input_layout.addWidget(target_folder_widget)
+        input_widget.setLayout(input_layout)
+
+        return input_widget
 
 
 # Start function at runtime
