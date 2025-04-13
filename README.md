@@ -4,7 +4,7 @@ I'm following a 145 challenge path to build my portfolio. Each challenge will be
 ## Stats
 
 **Completion Status:** INCOMPLETE
-**Progress:** 0.00%
+**Progress:** 0.00% - 0/145
 
 ## The List
 
