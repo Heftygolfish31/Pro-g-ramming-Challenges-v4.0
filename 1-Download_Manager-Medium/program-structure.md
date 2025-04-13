@@ -1,5 +1,9 @@
 # Program Structure
 
+## Medium
+
+GUI (PyQt6).
+
 ## Inputs
 
 The program should input:
